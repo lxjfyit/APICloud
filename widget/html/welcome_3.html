@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+    <style>
+        html,body{
+            height:100%;
+            background-color : transparent;
+        }
+
+        .header{
+        	position: relative;
+        	width: 100%;
+        	height: 44px;
+        }
+
+        .header .skip-button{
+			position: absolute;
+			right: 16px;
+			bottom:4px;
+			width: 80px;
+			height: 35px;
+			font-size: 14px;
+			text-align: center;
+			line-height: 35px;
+			color: #888;
+			border:1px solid #ccc;
+			border-radius: 18px;
+			background-color: #fff;
+			background-image: url(../image/welcome/arrow.png);
+			background-size: 12px 20px;
+			background-repeat: no-repeat; 
+			background-position: 62px center; 
+
+        }
+    </style>	
+</head>
+<body>
+	<header class="header" id="header">
+		<div class="skip-button" onclick="skip()">跳过</div>	
+	</header>
+</body>
+<script src="../script/api.js"></script>
+<script>
+	apiready = function(){
+	    init();
+	}
+	    
+
+function init(){
+	var header = $api.byId('header');
+	$api.fixStatusBar(header);
+}
+
+function skip(){
+	api.closeFrameGroup({
+	    name: 'welcome_group'
+	});
+}
+
+</script>
+</html>
